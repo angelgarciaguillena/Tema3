@@ -28,7 +28,6 @@ public class Ejercicio5 {
 		
 		/*Creamos un bucle para ir sacando los numeros, ir sumandolos y mostrar cual es el maximo y el minimo de los dos*/
 		for(int i = 0; i < numeros.length; i++) {
-			System.out.println(numeros[i]);
 			suma += numeros[i];
 			
 			/*Creamos un if para indicar que al ser el primer numero es el maximo y minimo a la vez*/
