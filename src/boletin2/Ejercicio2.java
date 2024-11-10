@@ -6,9 +6,6 @@ import java.util.Scanner;
 public class Ejercicio2 {
 	public static void main(String[] args) {
 		
-		/*Creamos una variable para almacenar los numeros introducidos por el usuario*/
-		int numeros;
-		
 		/*Creamos una variable que almacene el resultado*/
 		boolean resultado;
 		
