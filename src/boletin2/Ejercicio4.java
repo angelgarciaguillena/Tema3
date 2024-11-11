@@ -1,14 +1,17 @@
 package boletin2;
 
 import java.util.Arrays;
-import java.util.Collections;
+
 import java.util.Scanner;
 
 public class Ejercicio4 {
 	public static void main(String[] args) {
 		
 		/*Creamos una tabla para guardar las puntuaciones*/
-		Integer puntuaciones[] = new Integer[8];
+		int puntuaciones[] = new int[8];
+		
+		/*Creamos una variable para indicar el numero del puesto*/
+		int puesto = 1;
 		
 		/*Creamos un Scanner*/
 		Scanner sc = new Scanner(System.in);
@@ -19,12 +22,12 @@ public class Ejercicio4 {
 			puntuaciones[i] = sc.nextInt();
 		}		
 		
-		/*Ordenamos las puntuaciones almacenadas en la tabla de mayor a menor*/
-		Arrays.sort(puntuaciones, Collections.reverseOrder());
+		/*Ordenamos las puntuaciones almacenadas en la tabla de menor a mayor*/
+		Arrays.sort(puntuaciones);
 		
-		/*Creamos un for para mostrar al usuario la tabla con las puntuaciones ordenadas*/
-		for(int i = 0; i < puntuaciones.length; i++) {
-			System.out.println("Puesto " + (i+1) + ": " + puntuaciones[i]);
+		/*Creamos un bucle for para mostrar las puntuaciones de mayor a menor*/
+		for (int i = 7; i >= 0; i--) {
+			System.out.println("Puesto " + (puesto++) + ": " + puntuaciones[i]);
 		}
 		
 		/*Cerramos el Scanner*/
