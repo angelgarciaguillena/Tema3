@@ -23,7 +23,7 @@ public class Ejercicio7 {
 		numeros = new int[tamaño];
 		
 		/*Creamos un bucle for para rellenar la tabla de valores*/
-		for(int j = 1; j < 10; j++) {
+		for(int j = 1; j <= 10; j++) {
 			
 			/*Creamos un array fill para rellenar la tabla con la secuencia*/
 			Arrays.fill(numeros, inicio, inicio + j, j);
