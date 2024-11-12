@@ -10,7 +10,7 @@ public class Ejercicio6 {
 		int coincidencias = 0;
 		
 		/*Creamos una variable para almacenar la busqueda del array*/
-		int busqueda = 0;
+		int busqueda;
 		
 		/*Creamos una variable que nos servira como contador*/
 		int contador = 0;
