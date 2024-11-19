@@ -24,7 +24,7 @@ public class Ejercicio4 {
 		int posicion = buscar(t, clave);
 		
 		/*Mostramos al usuario el resultado*/
-		System.out.println(posicion == -1 ? "El numero introducido no se ha encontrado" : "El numero introducido se ha encontrado en la posicion " + posicion);
+		System.out.println(posicion == -1 ? posicion : "El numero introducido se ha encontrado en la posicion " + posicion);
 		
 		/*Cerramos el Scanner*/
 		sc.close();
