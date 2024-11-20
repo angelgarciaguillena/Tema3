@@ -12,6 +12,9 @@ public class Ejercicio6 {
 		/*Creamos una tabla y almacenamos varios numeros*/
 		int t[] = {10, 1, 5, 8, 9, 2};
 		
+		/*Creamos una tabla que almacena el resultado de la funcion*/
+		int resultado[];
+		
 		/*Creamos un Scanner*/
 		Scanner sc = new Scanner(System.in);
 		
@@ -22,7 +25,7 @@ public class Ejercicio6 {
 		numElementos = sc.nextInt();
 		
 		/*Llamamos a la funcion*/
-		int resultado[] = suma(t, numElementos);
+		resultado = suma(t, numElementos);
 		
 		/*Mostramos el resultado al usuario*/
 		System.out.println(Arrays.toString(resultado));

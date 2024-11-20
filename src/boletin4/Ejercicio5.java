@@ -9,6 +9,9 @@ public class Ejercicio5 {
 		/*Creamos una variable para almacenar el dato de busqueda del usuario*/
 		int valor;
 		
+		/*Creamos una tabla que almacena el resultado de la funcion*/
+		int resultado[];
+		
 		/*Creamos una tabla y almacenamos numeros*/
 		int t[] = {6, 12, 18, 24, 36, 24, 18, 12, 6, 36};
 		
@@ -22,7 +25,7 @@ public class Ejercicio5 {
 		valor = sc.nextInt();
 		
 		/*Llamamos a la funcion*/
-		int resultado[] = buscarTodos(t, valor);
+		resultado = buscarTodos(t, valor);
 		
 		/*Mostramos el resultado al usuario*/
 		System.out.println(Arrays.toString(resultado));

@@ -6,8 +6,11 @@ public class Ejercicio2 {
 		/*Creamos la tabla y almacenamos algunos valores*/
 		int t[] = {23, 31, 2, 17, 8};
 		
+		/*Creamos una variable que almacena el resultado de la funcion*/
+		int maximoEnteros;
+		
 		/*Llamamos a la funcion*/
-		int maximoEnteros = maximo(t);
+		maximoEnteros = maximo(t);
 		
 		/*Mostramos al usuario la respuesta*/
 		System.out.println("El numero maximo de la tabla es " + maximoEnteros);

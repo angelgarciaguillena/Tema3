@@ -8,6 +8,9 @@ public class Ejercicio4 {
 		/*Creamos una tabla que almacena los numeros*/
 		int t[] = {1, 4, 9, 16, 21};
 		
+		/*Creamos una variable que almacena el resultado de la funcion*/
+		int posicion;
+		
 		/*Creamos una variable para almacenar el valor a buscar*/
 		int clave;
 		
@@ -21,7 +24,7 @@ public class Ejercicio4 {
 		clave = sc.nextInt();
 		
 		/*Llamamos a la funcion*/
-		int posicion = buscar(t, clave);
+		posicion = buscar(t, clave);
 		
 		/*Mostramos al usuario el resultado*/
 		System.out.println(posicion == -1 ? posicion : "El numero introducido se ha encontrado en la posicion " + posicion);

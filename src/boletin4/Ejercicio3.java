@@ -13,6 +13,9 @@ public class Ejercicio3 {
 		/*Creamos una variable para almacenar el fin*/
 		int fin;
 		
+		/*Creamos una tabla que alamcena el resultado de la funcion*/
+		int tablaNumeros[];
+		
 		/*Creamos un Scanner*/
 		Scanner sc = new Scanner(System.in);
 		
@@ -29,7 +32,7 @@ public class Ejercicio3 {
 		fin = sc.nextInt();
 		
 		/*Llamamos a la funcion*/
-		int tablaNumeros[] = rellenaPares(longitud, fin);
+		tablaNumeros = rellenaPares(longitud, fin);
 		
 		/*Mostramos la tabla al usuario*/
 		System.out.println(Arrays.toString(tablaNumeros));
