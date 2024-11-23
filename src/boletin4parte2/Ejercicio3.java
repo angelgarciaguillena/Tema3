@@ -8,7 +8,7 @@ public class Ejercicio3 {
 		/*Creamos una variable para almacenar el resultado*/
 		boolean resultado; 
 		
-		/*Creamos una tabla bidimensional y almacenamos numeros*/
+		/*Creamos una tabla bidimensional para almacenar numeros*/
 		int tabla[][] = new int[3][3];
 		
 		/*Creamos un Scanner*/
