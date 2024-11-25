@@ -60,15 +60,28 @@ public class Ejercicio1 {
 		/*Creamos una variable para saber si el numero se encuentra en la tabla*/
 		boolean busqueda = false;
 		
-		/*Creamos un bucle for para recorrer la tabla y buscar el numero*/
-		for(int i = 0; i < tabla.length; i++) {
-			for(int j = 0; j < tabla[i].length; j++) {
+		/*Creamos una variable para contar las filas*/
+		int contadorI = 0;
+		
+		/*Creamos una variable para contar las columnas*/
+		int contadorJ = 0;
+		
+		/*Creamos un bucle while para recorrer la tabla y buscar el numero*/
+		while(contadorI < tabla.length && !busqueda) {
+			while(contadorJ < tabla[contadorI].length && !busqueda) {
 				
 				/*Creamos un if para que si el numero es igual al dato del usuario devuelva true*/
-				if(tabla[i][j] == valor) {
+				if(tabla[contadorI][contadorJ] == valor) {
 					busqueda = true;
 				}
+				/*Sumamos 1 al contadorJ*/
+				contadorJ++;
 			}
+		/*Sumamos 1 al contadorI*/
+		contadorI++;
+		
+		/*Reseteamos el contadorJ*/
+		contadorJ = 0;
 		}
 	
 		/*Devolvemos la variable busqueda*/
