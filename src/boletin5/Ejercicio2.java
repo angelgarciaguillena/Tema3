@@ -29,7 +29,7 @@ public class Ejercicio2 {
 		resultado = desordenar(tabla);
 		
 		/*Mostramos la tabla desordenada al usuario*/
-		System.out.println(Arrays.toString(tabla));
+		System.out.println(Arrays.toString(resultado));
 		
 		/*Cerramos el Scanner*/
 		sc.close();

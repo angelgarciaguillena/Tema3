@@ -42,7 +42,7 @@ public class Ejercicio3 {
 		System.out.println("Tabla desordenada");
 		for(int i = 0; i < tabla.length; i++) {
 			for(int j = 0; j < tabla[i].length; j++) {
-				System.out.print(tabla[i][j] + "\t");
+				System.out.print(resultado[i][j] + "\t");
 			}
 			/*Hacemos un salto de linea*/
 			System.out.println();
