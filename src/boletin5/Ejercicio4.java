@@ -110,6 +110,9 @@ public class Ejercicio4 {
 		/*Creamos una tabla que sera el tablero de ajedrez*/
 		char tablero[][] = new char[8][8];
 		
+		/*Creamos una variable que nos servira como contador*/
+		int contador = 0;
+		
 		/*Creamos un bucle for para rellenar el tablero con asteriscos simulando que los asteriscos son una casilla del tablero*/
 		for(int i = 0; i < tablero.length; i++) {
 			for(int j = 0; j < tablero[i].length; j++) {
@@ -120,14 +123,37 @@ public class Ejercicio4 {
 		/*Establecemos la posicion inicial del alfil segun el usuario*/
 		tablero[posFila][posColumna] = 'A';
 		
-		/*Creamos un bucle for para recorrer las filas y las columnas*/
+		/*Creamos un bucle for para recorrer las filas y las columnas y trazar los movimientos en la parte inferior de la pieza*/
 		for(int i = posFila; i < tablero.length; i++) {
 			for(int j = 0; j < tablero[i].length; j++) {
-				if(tablero[posFila+j][posColumna+j] == '*') {
-					tablero[posFila+j][posColumna+j] = 'X';
-				} 
+				if(j != posColumna) { /*Si j es diferente a la posicion de la columna*/
+					if(j == (posColumna - contador)) {/*Si j es igual a posicion de la columna menos el contador guardar X*/
+						tablero[i][j] = 'X';
+					} else if(j == (posColumna + contador)) {/*Si j es igual a posicion de la columna mas el contador guardar X*/
+						tablero[i][j] = 'X';
+					}
+				}
 			}
-			
+			/*Sumo 1 al contador*/
+			contador++;	
+		}
+		
+		/*Reiniciamos el contador*/
+		contador = 0;
+		
+		/*Creamos un bucle for para recorrer las filas y las columnas y trazar los movimientos en la parte superior de la pieza*/
+		for(int i = posFila; i >= 0; i--) {
+			for(int j = 0; j < tablero[i].length; j++) {
+				if(j != posColumna) { /*Si j es diferente a la posicion de la columna*/
+					if(j == (posColumna - contador)) {/*Si j es igual a posicion de la columna menos el contador guardar X*/
+						tablero[i][j] = 'X';
+					} else if(j == (posColumna + contador)) { /*Si j es igual a posicion de la columna mas el contador guardar X*/
+						tablero[i][j] = 'X';
+					}
+				}
+			}
+			/*Sumo 1 al contador*/
+			contador++;	
 		}
 		
 		/*Devolvemos el tablero con los movimientos del alfil*/
