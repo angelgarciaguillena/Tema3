@@ -91,10 +91,10 @@ public class Ejercicio4 {
 			for(int j = 0; j < tablero[i].length; j++) {
 				
 				/*Creammos un if para dibujar los movimientos de la torre*/
-				if(tablero[i][posColumna] == '*') {/*Si la columna donde se encuentra la posicion introducida por el usuario tiene asterisco, cambiarlo por una X*/
+				if(tablero[i][posColumna] == '*') {/*Si la columna donde se encuentra la posicion introducida por el usuario tiene asterisco, cambiarlo por una X en cada fila*/
 					tablero[i][posColumna] = 'X';
 					
-				} else if (tablero[posFila][j] == '*') { /**Si la fila donde se encuentra la posicion introducida por el usuario tiene asterisco, cambiarlo por una X*/
+				} else if (tablero[posFila][j] == '*') { /*Si la fila donde se encuentra la posicion introducida por el usuario tiene asterisco, cambiarlo por una X en cada columna*/
 					tablero[posFila][j] = 'X';
 				}
 			}
@@ -126,12 +126,12 @@ public class Ejercicio4 {
 		/*Creamos un bucle for para recorrer las filas y las columnas y trazar los movimientos en la parte inferior de la pieza*/
 		for(int i = posFila; i < tablero.length; i++) {
 			for(int j = 0; j < tablero[i].length; j++) {
+				
 				if(j != posColumna) { /*Si j es diferente a la posicion de la columna*/
-					if(j == (posColumna - contador)) {/*Si j es igual a posicion de la columna menos el contador guardar X*/
+					
+					if(j == (posColumna - contador) || j == (posColumna + contador)) {/*Si j es igual a posicion de la columna menos el contador guardar X o Si j es igual a posicion de la columna mas el contador guardar X*/
 						tablero[i][j] = 'X';
-					} else if(j == (posColumna + contador)) {/*Si j es igual a posicion de la columna mas el contador guardar X*/
-						tablero[i][j] = 'X';
-					}
+					} 
 				}
 			}
 			/*Sumo 1 al contador*/
@@ -144,10 +144,10 @@ public class Ejercicio4 {
 		/*Creamos un bucle for para recorrer las filas y las columnas y trazar los movimientos en la parte superior de la pieza*/
 		for(int i = posFila; i >= 0; i--) {
 			for(int j = 0; j < tablero[i].length; j++) {
+				
 				if(j != posColumna) { /*Si j es diferente a la posicion de la columna*/
-					if(j == (posColumna - contador)) {/*Si j es igual a posicion de la columna menos el contador guardar X*/
-						tablero[i][j] = 'X';
-					} else if(j == (posColumna + contador)) { /*Si j es igual a posicion de la columna mas el contador guardar X*/
+					
+					if(j == (posColumna - contador) || j == (posColumna + contador)) {/*Si j es igual a posicion de la columna menos el contador guardar X o Si j es igual a posicion de la columna mas el contador guardar X*/
 						tablero[i][j] = 'X';
 					}
 				}
@@ -166,6 +166,9 @@ public class Ejercicio4 {
 		/*Creamos una tabla que sera el tablero de ajedrez*/
 		char tablero[][] = new char[8][8];
 		
+		/*Creamos una variable que nos servira como contador*/
+		int contador = 0;
+		
 		/*Creamos un bucle for para rellenar el tablero con asteriscos simulando que los asteriscos son una casilla del tablero*/
 		for(int i = 0; i < tablero.length; i++) {
 			for(int j = 0; j < tablero[i].length; j++) {
@@ -175,6 +178,52 @@ public class Ejercicio4 {
 		
 		/*Establecemos la posicion inicial de la dama segun el usuario*/
 		tablero[posFila][posColumna] = 'D';
+		
+		/*Creamos un bucle for para recorrer las filas y columnas y indicar los movimientos de la dama como torre con una X*/
+		for(int i = 0; i < tablero.length; i++) {
+			for(int j = 0; j < tablero[i].length; j++) {
+				
+				if(tablero[i][posColumna] == '*') { /*Si la columna donde se encuentra la posicion introducida por el usuario tiene asterisco, cambiarlo por una X en cada fila*/
+					tablero[i][posColumna] = 'X';
+					
+				} else if(tablero[posFila][j] == '*') { /*Si la fila donde se encuentra la posicion introducida por el usuario tiene asterisco, cambiarlo por una X en cada columna*/
+					tablero[posFila][j] = 'X';
+				}
+			}
+		}
+		
+		/*Creamos un bucle for para recorrer las filas y columnas y indicar los movimientos de la dama como alfil en la parte superior*/
+		for(int i = posFila; i >= 0; i--) {
+			for(int j = 0; j < tablero[i].length; j++) {
+				
+				if(j != posColumna) { /*Si j es diferente a la posicion de la columna*/
+					
+					if(j == (posColumna - contador) || j == (posColumna + contador)) { /*Si j es igual a posicion de la columna menos el contador guardar X o Si j es igual a posicion de la columna mas el contador guardar X*/
+						tablero[i][j] = 'X';
+					} 
+				}
+			}
+			/*Sumamos 1 al contador*/
+			contador++;
+		}
+		
+		/*Reiniciamos el contador*/
+		contador = 0;
+		
+		/*Creamos un bucle for para recorrer las filas y columnas y indicar los movimienos de la dama como alfil en la parte inferior*/
+		for(int i = posFila; i < tablero.length; i++) {
+			for(int j = 0; j < tablero[i].length; j++) {
+				
+				if(j != posColumna) { /*Si j es diferente a la posicion de la columna*/
+					
+					if(j == (posColumna - contador) || j == (posColumna + contador)) { /*Si j es igual a posicion de la columna menos el contador guardar X o Si j es igual a posicion de la columna mas el contador guardar X*/
+						tablero[i][j] = 'X';
+					}
+				}
+			}
+			/*Sumamos 1 al contador*/
+			contador++;
+		}
 		
 		/*Devolvemos el tablero con los movimientos de la dama*/
 		return tablero;
@@ -195,6 +244,34 @@ public class Ejercicio4 {
 		
 		/*Establecemos la posicion inicial del caballo segun el usuario*/
 		tablero[posFila][posColumna] = 'C';
+		
+		/*Creamos un bucle for para recorrer las filas y columnas y trazar los movimientos del caballo en la parte superior*/
+		for(int i = posFila; i >= 0; i--) {
+			for(int j = 0; j < tablero[i].length; j++) {
+				
+				if((i == posFila - 1 && j == posColumna + 2) || (i == posFila - 2 && j == posColumna + 1)) { //Si la i es igual a la posicion de la fila menos 1 y j es igual a la posicion de la columna mas 2 
+					tablero[i][j] = 'X';																	 //o Si i es igual a la posicion de la fila menos 2 y j es igual a la posicion de la columna mas 1*/
+					
+				} else if((i == posFila - 1 && j == posColumna - 2) || (i == posFila - 2 && j == posColumna -1)) { //Si la i es igual a la posicion de la fila menos 1 y j es igual a la posicion de la columna menos 2 
+					tablero[i][j] = 'X';																		   //o Si i es igual a la posicion de la fila menos 2 y j es igual a la posicion de la columna mas 1*/
+					
+				}
+			}
+		}
+		
+		/*Creamos un bucle for para recorrer las filas y columnas y trazar los movimientos del caballo en la parte inferior*/
+		for(int i = posFila; i < tablero.length; i++) {
+			for(int j = 0; j < tablero[i].length; j++) {
+				
+				if((i == posFila + 1 && j == posColumna + 2) || (i == posFila + 2 && j == posColumna + 1)) { //Si la i es igual a la posicion de la fila mas 1 y j es igual a la posicion de la columna mas 2 
+					tablero[i][j] = 'X';																	 //o Si i es igual a la posicion de la fila mas 2 y j es igual a la posicion de la columna mas 1*/
+					
+				} else if((i == posFila + 1 && j == posColumna - 2) || (i == posFila + 2 && j == posColumna -1)) { //Si la i es igual a la posicion de la fila mas 1 y j es igual a la posicion de la columna menos 2 
+					tablero[i][j] = 'X';																		   //o Si i es igual a la posicion de la fila mas 2 y j es igual a la posicion de la columna mas 1*/
+					
+				}
+			}
+		}
 		
 		/*Devolvemos el tablero con los movimientos del caballo*/
 		return tablero;
