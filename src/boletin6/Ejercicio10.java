@@ -55,9 +55,14 @@ public class Ejercicio10 {
 		
 		/*Creamos un bucle while para recorrer la tabla en busca del caracter*/
 		while(contador < conjunto1.length) {
+			
+			/*Creamos un if para que si el caracter es igual al del conjunto 1 cambiar por el caracter del conjunto 2*/
 			if(c == conjunto1[contador]) {
 				codificado = conjunto2[contador];
 			}
+			
+			/*Sumamos 1 al contador*/
+			contador++;
 		}
 		
 		/*Devolvemos el caracter*/
