@@ -48,7 +48,7 @@ public class Ejercicio10 {
 	static char codifica(char conjunto1[],char conjunto2[], char c) {
 		
 		/*Almacenamos una variable para almacenar el caracter*/
-		char codificado = ' ';
+		char codificado = c;
 		
 		/*Creamos una variable que nos sirve para contador*/
 		int contador = 0;
