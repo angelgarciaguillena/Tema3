@@ -18,7 +18,7 @@ public class Ejercicio6 {
 		System.out.println("Introduce una frase");
 
 		/*Leemos la frase del usuario*/
-		frase = sc.nextLine().toLowerCase();
+		frase = sc.nextLine().toLowerCase().trim();
 		
 		/*LLamamos a la funcion*/
 		resultado = esPalindromo(frase);
