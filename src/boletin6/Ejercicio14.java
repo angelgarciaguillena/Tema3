@@ -1,6 +1,5 @@
 package boletin6;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ejercicio14 {
@@ -9,23 +8,11 @@ public class Ejercicio14 {
 		/*Creamos una variable que almacene la frase del usuario*/
 		String frase;
 		
-		/*Creamos una variable que almacene la frase del usuario editada*/
-		String frase2;
-		
-		/*Creamos una variable para contar las letras unicas de la frase*/
-		int numeroLetras = 0;
-		
-		/*Creamos una variable que almacene las letras unicas*/
-		char letrasUnicas = ' ';
+		/*Creamos una variable para almacenar el indice*/
+		int indice;
 		
 		/*Creamos una variable que servira como contador*/
 		int contador = 0;
-		
-		/*Creamos un array que almacene las letras de la frase*/
-		char letras[];
-		
-		/*Creamos un array para almacenar las veces que se repiten las letras*/
-		int repeticiones[];
 		
 		/*Creamos un Scanner*/
 		Scanner sc = new Scanner(System.in);
@@ -34,79 +21,31 @@ public class Ejercicio14 {
 		System.out.println("Introduce una frase");
 		
 		/*Leemos la frase del usuario*/
-		frase = sc.nextLine().toLowerCase();
-		frase2 = frase;
+		frase = sc.nextLine().toLowerCase().trim().replace(" ", "");
 		
-		/*Creamos un bucle while para recorrer la palabra y contar las letras unicas*/
-		while(contador < frase.length()) {
+		/*Creamos un bucle for para recorrer el abecedario y ver cuales de las letras coinciden con las de la frase*/
+		for(char letra = 'a'; letra <= 'z'; letra++) {
 			
-			/*Almacenamos la letra*/
-			letrasUnicas = frase2.charAt(0);
+			/*Averiguamos donde se aparece por primera vez el caracter*/ 
+			indice = frase.indexOf(letra);
 			
-			/*Sumamos 1 al contador de letras unicas*/
-			numeroLetras++;
-			
-			/*Remplazamos la letra almacenada por espacios vacios para que el programa no la detecte de nuevo*/
-			frase2.replace(String.valueOf(letrasUnicas), "");
-			
-			/*Sumamos 1 al contador del bucle*/
-			contador++;
-		}
-		
-		/*Asignamos el tamaño al array donde almacenamos las letras y donde almacenamos las repeticiones*/
-		letras = new char[numeroLetras];
-		repeticiones = new int[numeroLetras];
-		
-		/*Reiniciamos el contador del bucle*/
-		contador = 0;
-		
-		/*Volvemos a restablecer la frase 2*/
-		frase2 = frase;
-		
-		/*Creamos un bucle for para recorrer de nuevo la frase y almacenar las letras en el array*/
-		while(contador < frase.length()) {
-			
-			/*Almacenamos la letra en la tabla*/
-			letras[contador] = frase2.charAt(0);
-			
-			/*Remplazamos la letra almacenada por espacios vacios para que el programa no la detecte de nuevo*/
-			frase2.replace(String.valueOf(letras[contador]), "");
-			
-			/*Sumamos 1 al contador del bucle*/
-			contador++;
-		}
-		
-		/*Reiniciamos el contador*/
-		contador = 0;
-		
-		/*Creamos un bucle for para recorrer la tabla que contiene las letras unicas*/
-		for(int i = 0; i < letras.length; i++) {
-			
-			/*Creamos un bucle para recorrer la frase y contar cuantas veces se repite la letra almacenada en la tabla*/
-			for(int j = 0; j < frase.length(); j++) {
+			/*Creamos un bucle while para realizar una busqueda del caracter a partir de su primera aparicion*/
+			while(indice != -1) {
 				
-				/*Almacenamos la letra en la variable*/
-				letrasUnicas = frase.charAt(i);
+				/*Sumamos 1 al contador de veces que ha aparecido el caracter*/
+				contador++;
 				
-				/*Si la letra almacenada es igual a la letra sumar 1 al contador*/
-				if(letrasUnicas == frase.charAt(j)) {
-					contador++;
-				}
+				/*Buscamos el caracter a partir del indice anterior de forma que cada vez que se encuentre 
+				 * se vaya sumando al contador y se empieze a buscar desde la nueva posicion*/
+				indice = frase.indexOf(letra, indice+1);
 			}
 			
-			/*Almacenamos el contador en la otra tabla*/
-			repeticiones[i] = contador;
-			
-			/*Eliminamos la letra de la frase*/
-			frase.replace(String.valueOf(letrasUnicas), "");
+			/*Mostramos las veces que se repiten las letras en la frase*/
+			System.out.println(letra + ": " + contador + " veces");
 			
 			/*Reiniciamos el contador*/
 			contador = 0;
 		}
-		
-		/*Mostramos al usuario el resultado del programa*/
-		System.out.println(Arrays.toString(letras));
-		System.out.println(Arrays.toString(repeticiones));
 		
 		/*Cerramos el Scanner*/
 		sc.close();
