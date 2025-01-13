@@ -30,7 +30,6 @@ public class Ejercicio17 {
 		sc.close();
 	}
 
-	
 	/*Creamos una funcion que reciba la sentencia de C y la devuelva sin comentarios*/
 	static String quitarComentarios(String sentencia) {
 		
@@ -38,22 +37,36 @@ public class Ejercicio17 {
 		int indiceInicial = 0;
 		
 		/*Creamos una variable para almacenar el indice inicial del comentario*/
-		int indiceFinal;
+		int indiceFinal = 0;
+		
+		/*Creamos una variable para almacenar los caracteres del comentario*/
+		String cadena = "";
+		
+		/*Creamos una variable que nos servira como contador*/
+		int contador = 0;
 		
 		/*Creamos una constante para almacenar el caracter de busqueda de busqueda*/
 		char BUSQUEDA = '/';
 		
 		/*Creamos un bucle for para recorrer la frase*/
-		for(int i = 0; i < sentencia.length(); i++) {
+		while(indiceInicial != -1) {
 			
 			/*Buscamos el inicio y el final de los comentarios*/
 			indiceInicial = sentencia.indexOf(BUSQUEDA, indiceInicial);
 			indiceFinal = sentencia.indexOf(BUSQUEDA, indiceInicial);
 			
-			/*Creamos un bucle while para eliminar el comentario de la frase*/
+			contador = indiceInicial;
+			
+			if(indiceInicial != -1) {
+				/*Creamos un bucle while para eliminar el comentario de la frase*/
+				while(contador < indiceFinal) {
+					cadena += sentencia.charAt(contador);
+					contador++;
+				}
+				sentencia = sentencia.replace(cadena, "");
+			}
 			
 		}
-		
 		
 		/*Devolvemos la frase sin comentarios*/
 		return sentencia;
