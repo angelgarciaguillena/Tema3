@@ -39,9 +39,6 @@ public class Ejercicio17 {
 		/*Creamos una variable para almacenar el indice inicial del comentario*/
 		int indiceFinal = 0;
 		
-		/*Creamos una variable para almacenar los caracteres del comentario*/
-		String cadena = "";
-		
 		/*Creamos un bucle while para iniciarlo si contiene un comentario */
 		while(sentencia.contains("/*")) {
 			
