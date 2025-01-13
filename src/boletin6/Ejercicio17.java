@@ -42,34 +42,22 @@ public class Ejercicio17 {
 		/*Creamos una variable para almacenar los caracteres del comentario*/
 		String cadena = "";
 		
-		/*Creamos una variable que nos servira como contador*/
-		int contador = 0;
-		
-		/*Creamos una constante para almacenar el caracter de busqueda de busqueda*/
-		char BUSQUEDA = '/';
-		
-		/*Creamos un bucle for para recorrer la frase*/
-		while(indiceInicial != -1) {
+		/*Creamos un bucle while para iniciarlo si contiene un comentario */
+		while(sentencia.contains("/*")) {
 			
 			/*Buscamos el inicio y el final de los comentarios*/
-			indiceInicial = sentencia.indexOf(BUSQUEDA, indiceInicial);
-			indiceFinal = sentencia.indexOf(BUSQUEDA, indiceInicial);
+			indiceInicial = sentencia.indexOf("/*");
+			indiceFinal = sentencia.indexOf("*/", indiceInicial);
 			
-			contador = indiceInicial;
-			
-			if(indiceInicial != -1) {
-				/*Creamos un bucle while para eliminar el comentario de la frase*/
-				while(contador < indiceFinal) {
-					cadena += sentencia.charAt(contador);
-					contador++;
-				}
-				sentencia = sentencia.replace(cadena, "");
-			}
-			
+			/*Si el indice inicial y el final no es -1*/
+			if (indiceInicial != -1 && indiceFinal != -1) {
+				
+                /*Eliminamos el comentario de la frase*/
+                sentencia = sentencia.substring(0, indiceInicial) + sentencia.substring(indiceFinal + 2);
+            }
 		}
 		
 		/*Devolvemos la frase sin comentarios*/
 		return sentencia;
 	}
-	
 }
