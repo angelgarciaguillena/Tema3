@@ -1,6 +1,7 @@
 package examenes;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -29,11 +30,14 @@ public class TresEnRaya {
 		/*Creamos una variable para almacenar si la posicion del jugador es valida*/
 		boolean valida;
 		
+		/*Creamos una variable para almacenar el error*/
+		boolean error = false;
+		
 		/*Creamos una variablepara almacenar la ficha*/
 		char ficha = ' ';
 		
 		/*Creamos una variable para almacenar la respuesta del usuario a la pregunta de seguir jugando*/
-		String jugarOtra;
+		String jugarOtra = "";
 		
 		/*Llamamos a la funcion*/
 		empieza = jugadorInicial();
@@ -42,6 +46,10 @@ public class TresEnRaya {
 		for(int i = 0; i < tablero.length; i++) {
 			Arrays.fill(tablero[i], '-');
 		}
+		
+		/*Imprimimos el tablero por pantalla llamando a la funcion*/
+		System.out.println("Tablero:");
+		imprimeTablero();
 		
 		/*Creamos un bucle do while para que se repita si el usuario no quiere salir*/
 		do {
@@ -125,11 +133,31 @@ public class TresEnRaya {
 			    System.out.println("Es un empate");
 			}
 			
-			/*Preguntamos al usuario si desea seguir jugando*/
-			System.out.println("¿Quieres seguir jugando?");
-			
-			/*Leemos la respuesta del usuario*/
-			jugarOtra = sc.nextLine();
+			/*Creamos un bucle do while para repetir hasta que no se introduzca una respuesta valida*/
+			do {
+				/*Creamos un try catch para notificar al usuario de los errores cometidos*/
+				try {
+					/*Preguntamos al usuario si desea seguir jugando*/
+					System.out.println("¿Quieres seguir jugando? (Si/No)");
+					
+					/*Leemos la respuesta del usuario*/
+					jugarOtra = sc.nextLine();
+					sc.nextLine();
+		
+					/*Creamos un assert para notificar al usuario de que no ha introducido ni si ni no*/
+					assert !jugarOtra.equalsIgnoreCase("Si") &&  !jugarOtra.equalsIgnoreCase("No") : "Error: No has introducido ni 'Si' ni 'No'";
+					
+				/*Si comete el error del assert*/
+				}catch (AssertionError e) {
+					
+					/*Mostramos el error al usuario*/
+					System.err.println(e.getMessage());
+					sc.nextLine();
+					
+					/*Asignamos que el error es falso*/
+					error = false;
+				}
+			}while(error);		
 			
 			/*Limpiamos el tablero llamando a la funcion*/
 			limpiarTablero();
@@ -207,22 +235,85 @@ public class TresEnRaya {
 		boolean esValida = true;
 		
 		/*Creamos una variable para almacenar la posicion de fila del jugador*/
-		int posFilaJugador;
+		int posFilaJugador = 0;
 		
 		/*Creamos una variable para almacenar la posicion de columna del jugador*/
-		int posColumnaJugador;
+		int posColumnaJugador = 0;
 		
-		/*Pedimos al usuario que introduzca una posicion de fila*/
-		System.out.println("Introduce una posicion de fila");
+		/*Creamos un bucle do while para que se repita mientras el error es verdad*/
+		do {
+			/*Creamos un try catch para notificar al usuario de si ha cometido algun error*/
+			try {
+				
+				/*Pedimos al usuario que introduzca una posicion de fila*/
+				System.out.println("Introduce una posicion de fila");
+				
+				/*Leemos la posicion de fila del usuario*/
+				posFilaJugador = sc.nextInt();
+				sc.nextLine();
+				
+				/*Creamos un assert para notificar al usuario en caso de que el numero introducido no este dentro del rango*/
+				assert posFilaJugador <= 0 && posFilaJugador >= 8 : "Error: El numero introducido no esta dentro del rango del tablero (0-8)";
+				
+			/*Si se cumple este error*/
+			} catch(AssertionError e) {
+				
+				/*Mostramos el error al usuario*/
+				System.err.println(e.getMessage());
+				sc.nextLine();
+				
+				/*Asignamos que la posicion es valida*/
+				esValida = true;
+				
+			/*Si se cumple este error*/
+			} catch(InputMismatchException e){
+				
+				/*Mostramos el error al usuario*/
+				System.err.println("Error: El numero no es entero");
+				sc.nextLine();
+				
+				/*Asignamos que la posicion no es valida*/
+				esValida = false;
+			}
+		}while(!esValida);
 		
-		/*Leemos la posicion de fila del usuario*/
-		posFilaJugador = sc.nextInt();
+		/*Creamos un bucle do while para que se repita mientras el error es verdad*/
+		do {
+			/*Creamos un try catch para notificar al usuario de si ha cometido algun error*/
+			try {
+				
+				/*Pedimos al usuario que introduzca una posicion de columna*/
+				System.out.println("Introduce una posicion de columna");
+				
+				/*Leemos la posicion de columna del usuario*/
+				posColumnaJugador = sc.nextInt();
+				sc.nextLine();
+				
+				/*Creamos un assert para notificar al usuario en caso de que el numero introducido no este dentro del rango*/
+				assert posColumnaJugador <= 0 && posColumnaJugador >= 8 : "Error: El numero introducido no esta dentro del rango del tablero (0-8)";
+				
+			/*Si se cumple este error*/
+			} catch(AssertionError e) {
+				
+				/*Mostramos el error al usuario*/
+				System.err.println(e.getMessage());
+				sc.nextLine();
+				
+				/*Asignamos que la posicion es valida*/
+				esValida = true;
+				
+			/*Si se cumple este error*/
+			} catch(InputMismatchException e){
+				
+				/*Mostramos el error al usuario*/
+				System.err.println("Error: El numero no es entero");
+				sc.nextLine();
+				
+				/*Asignamos que la posicion no es valida*/
+				esValida = false;
+			}
+		}while(!esValida);
 		
-		/*Pedimos al usuario que introduzca una posicion de columna*/
-		System.out.println("Introduce una posicion de columna");
-		
-		/*Leemos la posicion de columna del usuario*/
-		posColumnaJugador = sc.nextInt();
 		
 		/*Si la posicion tiene algun de los dos tipos de fichas devolver false sino se almacenara la ficha*/
 		if(tablero[posFilaJugador][posColumnaJugador] == 'X' || tablero[posFilaJugador][posColumnaJugador] == 'O') {
