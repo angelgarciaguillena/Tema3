@@ -142,20 +142,21 @@ public class TresEnRaya {
 					
 					/*Leemos la respuesta del usuario*/
 					jugarOtra = sc.nextLine();
-					sc.nextLine();
 		
 					/*Creamos un assert para notificar al usuario de que no ha introducido ni si ni no*/
-					assert !jugarOtra.equalsIgnoreCase("Si") &&  !jugarOtra.equalsIgnoreCase("No") : "Error: No has introducido ni 'Si' ni 'No'";
+					assert jugarOtra.equalsIgnoreCase("Si") || jugarOtra.equalsIgnoreCase("No") : "Error: No has introducido ni 'Si' ni 'No'";
+					
+					/*Asignamos que el error es falso*/
+					error = false;
 					
 				/*Si comete el error del assert*/
 				}catch (AssertionError e) {
 					
 					/*Mostramos el error al usuario*/
 					System.err.println(e.getMessage());
-					sc.nextLine();
 					
-					/*Asignamos que el error es falso*/
-					error = false;
+					/*Asignamos que el error es verdadero*/
+					error = true;
 				}
 			}while(error);		
 			
@@ -250,30 +251,33 @@ public class TresEnRaya {
 				
 				/*Leemos la posicion de fila del usuario*/
 				posFilaJugador = sc.nextInt();
-				sc.nextLine();
 				
 				/*Creamos un assert para notificar al usuario en caso de que el numero introducido no este dentro del rango*/
-				assert posFilaJugador <= 0 && posFilaJugador >= 8 : "Error: El numero introducido no esta dentro del rango del tablero (0-8)";
+				assert posFilaJugador >= 0 && posFilaJugador <= 8 : "Error: El numero introducido no esta dentro del rango del tablero (0-8)";
+				
+				/*Asignamos que la posicion ya es valido*/
+				esValida = true;
 				
 			/*Si se cumple este error*/
 			} catch(AssertionError e) {
 				
 				/*Mostramos el error al usuario*/
 				System.err.println(e.getMessage());
-				sc.nextLine();
 				
-				/*Asignamos que la posicion es valida*/
-				esValida = true;
+				/*Asignamos que la posicion no es valida*/
+				esValida = false;
 				
 			/*Si se cumple este error*/
 			} catch(InputMismatchException e){
 				
 				/*Mostramos el error al usuario*/
 				System.err.println("Error: El numero no es entero");
-				sc.nextLine();
 				
 				/*Asignamos que la posicion no es valida*/
 				esValida = false;
+				
+			} finally {
+				sc.nextLine();
 			}
 		}while(!esValida);
 		
@@ -287,30 +291,33 @@ public class TresEnRaya {
 				
 				/*Leemos la posicion de columna del usuario*/
 				posColumnaJugador = sc.nextInt();
-				sc.nextLine();
 				
 				/*Creamos un assert para notificar al usuario en caso de que el numero introducido no este dentro del rango*/
-				assert posColumnaJugador <= 0 && posColumnaJugador >= 8 : "Error: El numero introducido no esta dentro del rango del tablero (0-8)";
+				assert posColumnaJugador >= 0 && posColumnaJugador <= 8 : "Error: El numero introducido no esta dentro del rango del tablero (0-8)";
+				
+				/*Asignamos que la posicion ya es valido*/
+				esValida = true;
 				
 			/*Si se cumple este error*/
 			} catch(AssertionError e) {
 				
 				/*Mostramos el error al usuario*/
 				System.err.println(e.getMessage());
-				sc.nextLine();
 				
-				/*Asignamos que la posicion es valida*/
-				esValida = true;
+				/*Asignamos que la posicion no es valida*/
+				esValida = false;
 				
 			/*Si se cumple este error*/
 			} catch(InputMismatchException e){
 				
 				/*Mostramos el error al usuario*/
 				System.err.println("Error: El numero no es entero");
-				sc.nextLine();
 				
 				/*Asignamos que la posicion no es valida*/
 				esValida = false;
+				
+			} finally {
+				sc.nextLine();
 			}
 		}while(!esValida);
 		
