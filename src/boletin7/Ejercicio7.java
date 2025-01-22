@@ -24,13 +24,14 @@ public class Ejercicio7 {
 		/*Creamos el Scanner*/
 		Scanner sc = new Scanner(System.in);
 		
-		/*Mostramos el menu al usuario*/
-		System.out.println("1. Inserta palabra");
-		System.out.println("2. Busca palabra");
-		System.out.println("0. Salir");
-		
 		/*Creamos un bucle do while para que si no da una opcion valida volversela a pedir*/
 		do {
+			/*Mostramos el menu al usuario*/
+			System.out.println("Menu:");
+			System.out.println("1. Inserta palabra");
+			System.out.println("2. Busca palabra");
+			System.out.println("0. Salir");
+			
 			/*Pedimos al usuario que introduzca una opcion*/
 			System.out.println("Introduce una opcion");
 			
@@ -83,6 +84,12 @@ public class Ejercicio7 {
 			}
 			}
 			
+			/*Mostramos el menu al usuario*/
+			System.out.println("Menu:");
+			System.out.println("1. Inserta palabra");
+			System.out.println("2. Busca palabra");
+			System.out.println("0. Salir");
+			
 			/*Pedimos al usuario que introduzca otra opcion*/
 			System.out.println("Introduce otra opcion");
 			
@@ -93,6 +100,7 @@ public class Ejercicio7 {
 		
 		/*Notificamos al usuario que ha salido del programa*/
 		System.out.println("Has salido del programa");
+		
 		/*Cerramos el Scanner*/
 		sc.close();
 	}
