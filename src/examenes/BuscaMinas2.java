@@ -37,14 +37,7 @@ public class BuscaMinas2 {
 		/*Pintamos el tablero con la solucion llamando a la funcion*/
 		pintarTableroSolucion();
 		
-		/*BORRAR BLOQUE*/
-		for(int i = 0; i < tableroSolucion.length; i++) {
-			for(int j = 0; j < tableroSolucion[i].length; j++) {
-				System.out.print(tableroSolucion[i][j] + "\t");
-			}
-			/*Hacemos un salto de linea*/
-			System.out.println();
-		}
+		
 		
 		/*Creamos un bucle while para que se sigan mostrando casillas hasta que toque una mina o muestre todas las casillas que no tengan minas*/
 		do {
