@@ -1,18 +1,18 @@
 package boletin7;
 
-import java.util.LinkedHashSet;
 import java.util.Scanner;
+import java.util.TreeSet;
 
-public class Ejercicio5 {
+public class Ejercicio6 {
 	public static void main(String[] args) {
 		
-		/*Creamos una variable para almacenar la palabra del usuario*/
+		/*Creamos una variable que almacene el nombre del usuario*/
 		String palabra;
 		
 		/*Creamos una coleccion para almacenar las palabras*/
-		LinkedHashSet<String> palabras = new LinkedHashSet<>();
+		TreeSet<String> palabras = new TreeSet<>();
 		
-		/*Creamos un Scanner*/
+		/*Creamos el Scanner*/
 		Scanner sc = new Scanner(System.in);
 		
 		/*Pedimos al usuario que introduzca una palabra*/
@@ -21,10 +21,10 @@ public class Ejercicio5 {
 		/*Leemos la palabra del usuario*/
 		palabra = sc.nextLine();
 		
-		/*Creamos un bucle while para que se repita hasta que se introduzca la palabra fin*/
+		/*Creamos un bucle while para que mientras la palabra no sea igual a fin seguir pidiendo al usuario palabras*/
 		while(!palabra.equalsIgnoreCase("fin")) {
 			
-			/*Almacenamos la palabra en la coleccion*/
+			/*Añadimos las palabras a la coleccion*/
 			palabras.add(palabra);
 			
 			/*Pedimos al usuario que introduzca otra palabra*/
@@ -34,8 +34,8 @@ public class Ejercicio5 {
 			palabra = sc.nextLine();
 		}
 		
-		/*Creamos un bucle for each para mostrar al usuario la coleccion*/
-		for(String valor : palabras) {	
+		/*Creamos un bucle for each para mostrar al usuario las palabras introducidas*/
+		for(String valor : palabras) {
 			System.out.print(valor + ", ");
 		}
 		

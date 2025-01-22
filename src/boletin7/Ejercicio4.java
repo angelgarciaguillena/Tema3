@@ -16,7 +16,7 @@ public class Ejercicio4 {
 		for(int i = 0; i < 20; i++) {
 			
 			/*Generamos un numero aleatorio y lo almacenamos en la coleccion*/
-			numeros.add(rand.nextInt(0, 10));
+			numeros.add(rand.nextInt(0, 100));
 		}
 		
 		/*Creamos un bucle for each para recorrer la coleccion*/
