@@ -61,7 +61,7 @@ public class Ejercicio7 {
 				/*Leemos la palabra en ingles del usuario*/
 				palabraIngles = sc.nextLine();
 				
-				/*Añadimos la palabra a la coleccion*/
+				/*Añadimos la palabra al mapa*/
 				palabras.put(palabraEspañol, palabraIngles);
 			}
 			/*Si es 2 mostramos el diccionario*/
