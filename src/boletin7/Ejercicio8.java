@@ -16,10 +16,16 @@ public class Ejercicio8 {
 		int eleccion;
 		
 		/*Creamos una variable para almacenar el nombre del usuario*/
-		String nombreUsuario;
+		String nombreUsuario = "";
 		
 		/*Creamos una variable para almacenar la contraseña del usuario*/
-		String contraseña;
+		String contraseña = "";
+		
+		/*Creamos una variable que nos sirva como contador*/
+		int contador = 0;
+		
+		/*Creamos una variable que almacenara si se ha acertado la contraseña*/
+		boolean acertada = false;
 		
 		/*Creamos un bucle do while para que si no da una opcion valida volversela a pedir*/
 		do {
@@ -35,7 +41,7 @@ public class Ejercicio8 {
 			/*Leemos la eleccion del usuario*/
 			eleccion = sc.nextInt();
 			sc.nextLine();
-		}while(eleccion < 0 && eleccion > 2);
+		}while(eleccion < 0 || eleccion > 2);
 		
 		/*Creamos un bucle while para que mientras no sea 0 continue realizando 1 de las opciones del menu*/
 		while(eleccion != 0) {
@@ -61,29 +67,50 @@ public class Ejercicio8 {
 				/*Añadimos el nombre de usuario y la contraseña al mapa*/
 				contraseñas.put(nombreUsuario, contraseña);
 			}
-			/*Si es 2 mostramos el registro de los nombres y sus contraseñas correspondientes*/
+			
+			/*Si es 2 intentamos acceder al sistema*/
 			case 2 ->{
 				
-				/*Pedimos al usuario que introduzca el nombre de usuario de la contraseña que quiere buscae*/
-				System.out.println("Introduce el nombre de usuario");
+				/*Creamos un bucle do while para que mientras no acierte y no supere las tres oportunidades volver a intentar acertar la contraseña*/
+				do {					
+					/*Pedimos al usuario que introduzca el nombre de usuario de la contraseña que quiere buscae*/
+					System.out.println("Introduce el nombre de usuario");
+					
+					/*Leemos el nombre de usuario que inicia la sesion*/
+					nombreUsuario = sc.nextLine();
+					
+					/*Si la busqueda es nula mostrar al usuario que el nombre no es valido pero sino pedir la contraseña*/						
+					if (!contraseñas.containsKey(nombreUsuario)) {
+						
+						/*Sumamos 1 al contador*/
+						contador++;
+						
+						/*Notificamos al usuario de que el nombre introducido es incorrecto o que no ha podido acceder al sistema porque se le acabaron los intentos*/
+					    System.out.println(contador < 3 ? "Nombre de usuario incorrecto" : "Lo siento, no tiene acceso al área restringida");
+					    
+					} else {
+						
+						/*Pedimos al usuario que introduzca la contraseña*/
+						System.out.println("Introduce la contraseña");
+						
+						/*Leemos la contraseña del usuario*/
+						contraseña = sc.nextLine();
+						
+						/*Si la contraseña es nula se le notificara al usuario que no es valida sino se le notificara que ha entrado correctamente*/
+						if(!contraseña.equals(contraseñas.get(nombreUsuario))) {
+							System.out.println("Lo siento, no tiene acceso al área restringida");
+							contador++;
+						} else {
+							System.out.println("Ha accedido al área restringida");
+							acertada = true;
+						}
+					}
+				} while(contador < 3 && !acertada);
 				
-				/*Leemos el nombre de usuario que inicia la sesion*/
-				nombreUsuario = sc.nextLine();
 				
-				/*Pedimos al usuario que introduzca la contraseña*/
-				System.out.println("Introduce la contraseña");
-				
-				/*Leemos la contraseña del usuario*/
-				contraseña = sc.nextLine();
-				
-				/*Si la busqueda es nula mostrar al usuario que el nombre no es validoo pero sino mostrar la contraseña*/
-				if(contraseñas.get(nombreUsuario).equals(contraseña)) {
-					/*Notificamos al usuario de que el usuario introducido no se ha encontrado*/
-					System.out.println("Nombre de usuario no encontrada");
-				} else {
-					/*Mostramos la contraseña del nombre de usuario introducido*/
-					System.out.println("Contraseña: ");
-				}
+				/*Reiniciamos las variables*/
+				contador = 0;
+				acertada = false;
 			}
 			}
 			

@@ -38,7 +38,7 @@ public class Ejercicio7 {
 			/*Leemos la opcion del usuario*/
 			opcion = sc.nextInt();
 			sc.nextLine();
-		}while(opcion < 0 && opcion > 2);
+		}while(opcion < 0 || opcion > 2);
 		
 		/*Creamos un bucle while para que mientras no sea 0 continue añadiendo o mostrando las palabras*/
 		while(opcion != 0) {
