@@ -153,6 +153,26 @@ public class Ejercicio6 {
 			/*Si es 5 eliminamos a la persona y todos sus numeros*/
 			case 5 ->{
 				
+				/*Pedimos al usuario que introduzca el nombre que quiere eliminar*/
+				System.out.println("Introduce el nombre que quieres eliminar");
+				
+				/*Leemos el nombre introducido por el usuario*/
+				nombre = sc.nextLine();
+				
+				/*Si el nombre se encuentra en el mapa*/
+				if(nombres.containsKey(nombre)) {
+					
+					/*Eliminamos a la persona y sus telefonos del mapa*/
+					nombres.remove(nombre);
+					
+					/*Notificamos al usuario que la persona ha sido eliminadq*/
+					System.out.println("La persona se ha eliminado correctamente");
+					
+				} else {
+					
+					/*Notificamos al usuario que la persona no se encuentra en el mapa*/
+					System.out.println("La persona no se encuentra en la lista");
+				}
 			}
 			}
 			
