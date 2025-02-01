@@ -2,7 +2,6 @@ package boletin8;
 
 import java.util.HashSet;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.Scanner;
 
 public class Ejercicio6 {
@@ -110,7 +109,7 @@ public class Ejercicio6 {
 				/*Si el nombre se encuentra en el mapa y no esta vacio mostraremos el nombre y el telefono al usuario sino se
 				 * notificara que no se encuentra en el mapa*/
 				if(nombres.containsKey(nombre) && !nombres.get(nombre).isEmpty()) {
-					System.out.println("El telefono de " + nombre + " es: " + nombres.get(nombre));
+					System.out.println("Los telefonos de " + nombre + " son: " + nombres.get(nombre));
 				} else {
 					System.out.println("La persona no se encuentra en la lista");
 				}
