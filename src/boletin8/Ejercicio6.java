@@ -44,7 +44,7 @@ public class Ejercicio6 {
 			sc.nextLine();
 		}while(eleccion < 1 || eleccion > 6);
 		
-		/*Creamos un bucle while para que mientras la eleccion sea diferente a 5 seguir repitiendo*/
+		/*Creamos un bucle while para que mientras la eleccion sea diferente a 6 seguir repitiendo*/
 		while(eleccion != 6) {
 			
 			/*Creamos un switch para que depende de la eleccion que introduzca el usuario realizar una funcion u otra*/
@@ -62,9 +62,7 @@ public class Ejercicio6 {
 				/*Si la persona ya esta agregada se le avisa al usuario sino se añade el nombre al mapa*/
 				if(nombres.containsKey(nombre)) {
 					System.out.println("La persona ya existe");
-					
 				} else {
-					
 					/*Añadimos el nombre al mapa*/
 					nombres.put(nombre, new HashSet<>());
 				}
@@ -85,7 +83,7 @@ public class Ejercicio6 {
 				/*Leemos el numero de telefono de la persona*/
 				telefono = sc.nextInt();
 				
-				/*Almacenamos el telefono el conjunto asociado a nombre*/
+				/*Almacenamos loa telefonoa al conjunto asociado a nombre*/
 				numeros = nombres.get(nombre);
 				
 				/*Si el numero se añade notificamos al usuario que el telefono se ha añadido correctamente sino mostramos que no se
