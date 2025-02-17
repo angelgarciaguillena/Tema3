@@ -134,6 +134,7 @@ public class Ejercicio8 {
 			
 			/*Si la opcion es 4 mostramos las tareas por categorias*/
 			case 4 ->{
+				
 				/*Pedimos al usuario que introduzca una categoria*/
 				System.out.println("Introduce una categoria");
 				
@@ -150,6 +151,7 @@ public class Ejercicio8 {
 			
 			/*Si la opcion es 5 eliminamos una categoria y sus tareas*/
 			case 5 ->{
+				
 				/*Pedimos al usuario que introduzca una categoria*/
 				System.out.println("Introduce una categoria");
 				
